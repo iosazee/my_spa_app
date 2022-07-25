@@ -1,24 +1,24 @@
-import logo from './logo.svg';
+import {Home, ShutterSpeed, Aperture, ISO, ContactUs} from './components/pages.js';
 import './App.css';
+import {BrowserRouter, Routes, Route} from "react-router-dom";
+import Navigation from './components/navigation.js';
+import {wrapperStyle} from './components/styles.js';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <BrowserRouter>
+    <div className="App" style={wrapperStyle.wrapper}>
+      <Navigation />
+      <h1>Camera Tips</h1>
+      <Routes>
+      <Route exact path='/' element={<Home />} />
+      <Route exact path='/shutterspeed' element={<ShutterSpeed />} />
+      <Route exact path='/aperture' element={<Aperture />} />
+      <Route exact path='/iso' element={<ISO />} />
+      <Route exact path='/contactus' element={<ContactUs />} />
+      </Routes>
     </div>
+    </BrowserRouter>
   );
 }
 
